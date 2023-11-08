@@ -1,4 +1,6 @@
-FROM python:3.10-buster
+ARG PYTHON_VERSION
+
+FROM python:${PYTHON_VERSION}-buster
 
 RUN pip install poetry==1.6.1
 

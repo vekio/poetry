@@ -8,8 +8,8 @@ services:
       args:
         - PYTHON_VERSION=${PYTHON_VERSION}
     container_name: poetry${PYTHON_VERSION}
-    command: "${POETRY_COMMANDS}"
-    user: "1000:1000"
+    command: "${POETRY_COMMAND}"
+    user: "${UID}:${GID}"
     volumes:
       - ~/.cache/pypoetry:/tmp/poetry_cache:rw
-      - /home/alberto/src/tfg:/app:rw
+      - ${POETRY_PATH}:/app:rw

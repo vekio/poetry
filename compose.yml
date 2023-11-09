@@ -11,5 +11,5 @@ services:
     command: "${POETRY_COMMAND}"
     user: "${UID}:${GID}"
     volumes:
-      - ~/.cache/pypoetry:/tmp/poetry_cache:rw
-      - ${POETRY_PATH}:/app:rw
+      - ${POETRY_CACHE_DIR}:/tmp/poetry_cache:rw
+      - ${POETRY_PROJECT_DIR}:/app:rw

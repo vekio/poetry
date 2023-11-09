@@ -9,7 +9,7 @@ services:
         - PYTHON_VERSION=${PYTHON_VERSION}
     container_name: poetry${PYTHON_VERSION}
     command: "${POETRY_COMMAND}"
-    user: "${UID}:${GID}"
+    user: "${UID:-1000}:${GID:-1000}"
     volumes:
-      - ${POETRY_CACHE_DIR}:/tmp/poetry_cache:rw
+      - ${POETRY_CACHE_DIR:-~/.cache/pypoetry}:/tmp/poetry_cache:rw
       - ${POETRY_PROJECT_DIR}:/app:rw
